@@ -2,10 +2,12 @@ package committee.nova.quickplant;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ILiquidContainer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
@@ -94,9 +96,15 @@ public class QuickPlant {
         if (!blockIn.getMaterial().isReplaceable()) return false;
         final Item item = itemEntity.getItem().getItem();
         final IPlantable plant = isSeed ? (IPlantable) item : (IPlantable) Block.getBlockFromItem(item);
+        if (plant instanceof ILiquidContainer && !blockIn.getFluidState().isTagged(FluidTags.WATER)) return false;
         if (blockIn.getBlock() == plant.getPlant(world, plantPos).getBlock()) return false;
         final BlockState dirt = world.getBlockState(dirtPos);
-        if (!dirt.canSustainPlant(world, dirtPos, Direction.UP, plant)) return false;
+        boolean place = false;
+        try {
+            place = dirt.canSustainPlant(world, dirtPos, Direction.UP, plant);
+        } catch (Exception ignored) {
+        }
+        if (!place) return false;
         final boolean success = world.setBlockState(plantPos, plant.getPlant(world, plantPos));
         if (success && playSound.get())
             world.playSound(null, plantPos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, .5F, 1F);

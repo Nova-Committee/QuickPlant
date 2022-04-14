@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
-version = '1.15.X-1.0.0'
+version = '1.15.X-1.0.1'
 group = 'committee.nova.quickplant' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'QuickPlant'
 
