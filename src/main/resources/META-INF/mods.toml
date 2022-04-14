@@ -2,7 +2,7 @@ modLoader = "javafml"
 loaderVersion = "[26,)"
 [[mods]]
 modId = "quickplant"
-version = "1.0.0"
+version = "1.0.1"
 displayName = "QuickPlant"
 authors = "Tapio"
 description = ''''''
