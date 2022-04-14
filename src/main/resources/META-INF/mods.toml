@@ -1,0 +1,9 @@
+modLoader = "javafml"
+loaderVersion = "[32,)"
+license = "AGPL v3"
+[[mods]]
+modId = "quickplant"
+version = "1.0.0"
+displayName = "QuickPlant"
+authors = "Tapio"
+description = ''''''
