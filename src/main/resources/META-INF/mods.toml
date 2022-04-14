@@ -1,0 +1,8 @@
+modLoader = "javafml"
+loaderVersion = "[29,)"
+[[mods]]
+modId = "quickplant"
+version = "1.0.0"
+displayName = "QuickPlant"
+authors = "Tapio"
+description = ''''''
