@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "quickplant",
+  "version": "${version}",
+  "name": "Quickplant",
+  "description": "",
+  "authors": [
+    "Tapio"
+  ],
+  "contact": {},
+  "license": "AGPL-3.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "committee.nova.quickplant.QuickPlant"
+    ]
+  },
+  "mixins": [
+    "quickplant.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "minecraft": "*"
+  }
+}
