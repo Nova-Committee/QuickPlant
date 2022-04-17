@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "quickplant",
+  "version": "${version}",
+  "name": "QuickPlant",
+  "description": "Toss and plant!",
+  "authors": [
+    "Tapio"
+  ],
+  "contact": {
+    "sources": "https://github.com/Nova-Committee/QuickPlant"
+  },
+  "license": "AGPL v3",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "committee.nova.quickplant.QuickPlant"
+    ]
+  },
+  "mixins": [
+    "quickplant.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.0",
+    "minecraft": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
