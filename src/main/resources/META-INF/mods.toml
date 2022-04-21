@@ -3,7 +3,7 @@ loaderVersion = "[32,)"
 license = "AGPL v3"
 [[mods]]
 modId = "quickplant"
-version = "1.0.1"
+version = "1.0.2"
 displayName = "QuickPlant"
 authors = "Tapio"
 description = ''''''

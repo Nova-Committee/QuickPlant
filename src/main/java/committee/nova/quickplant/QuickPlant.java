@@ -11,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -67,7 +66,7 @@ public class QuickPlant {
         final ItemStack stack = itemEntity.getItem();
         final byte plantType = isPlant(stack);
         if (plantType == 0) return;
-        if (itemEntity.getAge() >= expireTime.get()) return;
+        if (itemEntity.tickCount >= expireTime.get()) return;
         if (!tryPlantThere(itemEntity, plantType == 1)) {
             event.setExtraLife(refreshInterval.get());
             event.setCanceled(true);
@@ -107,9 +106,10 @@ public class QuickPlant {
         } catch (Exception ignored) {
         }
         if (!place) return false;
-        final boolean success = world.setBlock(plantPos, plant.getPlant(world, plantPos), 3);
+        final BlockState pl = plant.getPlant(world, plantPos);
+        final boolean success = world.setBlock(plantPos, pl, 3);
         if (success && playSound.get())
-            world.playSound(null, plantPos, SoundEvents.GRASS_PLACE, SoundCategory.BLOCKS, .5F, 1F);
+            world.playSound(null, plantPos, pl.getSoundType().getPlaceSound(), SoundCategory.BLOCKS, .5F, 1F);
         return success;
     }
 }
