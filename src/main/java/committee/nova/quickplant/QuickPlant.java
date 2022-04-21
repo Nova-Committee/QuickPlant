@@ -5,7 +5,6 @@ import net.minecraft.block.ILiquidContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tags.FluidTags;
@@ -105,9 +104,10 @@ public class QuickPlant {
         } catch (Exception ignored) {
         }
         if (!place) return false;
-        final boolean success = world.setBlockState(plantPos, plant.getPlant(world, plantPos));
+        final IBlockState pl = plant.getPlant(world, plantPos);
+        final boolean success = world.setBlockState(plantPos, pl);
         if (success && playSound.get())
-            world.playSound(null, plantPos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, .5F, 1F);
+            world.playSound(null, plantPos, pl.getSoundType(world, plantPos, null).getPlaceSound(), SoundCategory.BLOCKS, .5F, 1F);
         return success;
     }
 }
