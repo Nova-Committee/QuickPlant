@@ -1,0 +1,30 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "committee.nova",
+		"id": "quickplant",
+		"version": "${version}",
+		"metadata": {
+			"name": "QuickPlant",
+			"description": "Toss and plant!",
+			"contributors": {
+				"Tapio": "Owner"
+			}
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "committee.nova.quickplant.QuickPlant"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.16.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.18.2"
+			}
+		]
+	},
+	"mixin": "quickplant.mixins.json"
+}
