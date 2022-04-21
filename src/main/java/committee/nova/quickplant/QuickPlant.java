@@ -66,7 +66,7 @@ public class QuickPlant {
         final ItemStack stack = itemEntity.getItem();
         final byte plantType = isPlant(stack);
         if (plantType == 0) return;
-        if (itemEntity.getAge() >= expireTime.get()) return;
+        if (itemEntity.ticksExisted >= expireTime.get()) return;
         if (!tryPlantThere(itemEntity, plantType == 1)) {
             event.setExtraLife(refreshInterval.get());
             event.setCanceled(true);
