@@ -24,17 +24,9 @@ dependencies {
 		// officialMojangMappings() // Uncomment if you want to use Mojang mappings as your primary mappings, falling back on QM for parameters and Javadocs
 	}
 	modImplementation libs.quilt.loader
-
 	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
 	// Quilted Fabric API will automatically pull in the correct QSL version.
-	modImplementation libs.quilted.fabric.api
 	modImplementation "org.quiltmc:qsl:1.1.0-beta.4+1.18.2"
-
-	// QSL Library Example
-	modImplementation "org.quiltmc.qsl:core:1.1.0-beta.4+1.18.2"
-
-	// QSL Module Example
-	modImplementation "org.quiltmc.qsl.core:resource_loader:1.1.0-beta.4+1.18.2"
 }
 
 processResources {
