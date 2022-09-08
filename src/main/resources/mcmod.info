@@ -1,0 +1,10 @@
+[
+    {
+        "modid": "quickplant",
+        "name": "QuickPlant",
+        "description": "Toss and plant!",
+        "version": "${version}",
+        "mcversion": "1.6.4",
+        "authorList": ["Tapio"]
+    }
+]
